@@ -1,73 +1,164 @@
-# Welcome to your Lovable project
+# Fact Checker
 
-## Project info
+An AI-powered fact-checking application that verifies news claims and headlines instantly using advanced natural language processing.
 
-**URL**: https://lovable.dev/projects/4d67585d-6166-420d-a775-73ac5c2bbae0
+## Overview
 
-## How can I edit this code?
+Fact Checker is a modern web application designed to help users quickly verify the accuracy of news claims, headlines, and statements. By leveraging AI technology, the application analyzes claims and provides verification results along with detailed explanations.
 
-There are several ways of editing your application.
+## Features
 
-**Use Lovable**
+- **Instant Fact Verification**: Submit any news headline or claim for immediate verification
+- **AI-Powered Analysis**: Advanced machine learning models analyze claims for accuracy
+- **Detailed Explanations**: Receive comprehensive explanations for verification results
+- **User Authentication**: Secure login and registration system
+- **Responsive Design**: Fully responsive interface works seamlessly on desktop and mobile devices
+- **Beautiful UI**: Modern, animated interface with smooth interactions and visual feedback
+- **Dark Mode Support**: Toggle between light and dark themes for comfortable viewing
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/4d67585d-6166-420d-a775-73ac5c2bbae0) and start prompting.
+## Technology Stack
 
-Changes made via Lovable will be committed automatically to this repo.
+- **Frontend**: React with TypeScript
+- **Styling**: Tailwind CSS with shadcn-ui components
+- **Build Tool**: Vite
+- **Authentication**: Supabase Auth
+- **Database**: Supabase PostgreSQL
+- **API**: Supabase Edge Functions for serverless processing
+- **State Management**: React hooks and Tanstack Query
 
-**Use your preferred IDE**
+## Project Structure
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+```
+src/
+├── components/          # Reusable UI components
+│   ├── ui/             # shadcn-ui components
+│   ├── FactCheckInput.tsx
+│   ├── FactCheckResult.tsx
+│   ├── Navbar.tsx
+│   ├── Footer.tsx
+│   └── ThemeToggle.tsx
+├── pages/              # Page components
+│   ├── Index.tsx       # Main dashboard
+│   ├── Auth.tsx        # Authentication
+│   └── NotFound.tsx
+├── hooks/              # Custom React hooks
+├── lib/                # Utility functions
+└── integrations/       # External service integrations
+    └── supabase/       # Supabase client setup
+```
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+## Getting Started
 
-Follow these steps:
+### Prerequisites
+
+- Node.js 16+ and npm
+- A Supabase account for database and authentication
+
+### Installation
 
 ```sh
-# Step 1: Clone the repository using the project's Git URL.
+# Clone the repository
 git clone <YOUR_GIT_URL>
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+# Navigate to project directory
+cd fact-checker
 
-# Step 3: Install the necessary dependencies.
-npm i
+# Install dependencies
+npm install
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# Start development server
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+The application will be available at `http://localhost:5173`
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+### Build for Production
 
-**Use GitHub Codespaces**
+```sh
+npm run build
+```
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+## Usage
 
-## What technologies are used for this project?
+1. **Create an Account**: Sign up with your email and password
+2. **Login**: Access your account with your credentials
+3. **Submit a Claim**: Enter any news headline or claim in the input field
+4. **Get Results**: Receive instant verification results with detailed explanations
+5. **View History**: Track all your previous fact-checks
 
-This project is built with:
+## Authentication
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+The application uses Supabase's email/password authentication. Users must create an account and log in to access the fact-checking features.
 
-## How can I deploy this project?
+## API Integration
 
-Simply open [Lovable](https://lovable.dev/projects/4d67585d-6166-420d-a775-73ac5c2bbae0) and click on Share -> Publish.
+Fact-checking requests are processed through Supabase Edge Functions, which handle:
+- Claim analysis
+- AI-powered verification
+- Result generation
+- Explanation creation
 
-## Can I connect a custom domain to my Lovable project?
+## Security
 
-Yes, you can!
+- All user data is encrypted and stored securely in Supabase
+- Authentication tokens are managed securely
+- Row-level security (RLS) policies protect user data
+- CORS headers properly configured for safe API communication
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+## Performance
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+- Optimized bundle size with code splitting
+- Fast page loads with Vite's optimized build process
+- Responsive caching strategies
+- Smooth animations and transitions
+
+## Development
+
+### Available Scripts
+
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run lint` - Run ESLint
+- `npm run preview` - Preview production build locally
+
+### Code Quality
+
+The project maintains high code quality with:
+- TypeScript for type safety
+- ESLint for code linting
+- Consistent code formatting
+- Component-based architecture
+
+## Browser Support
+
+- Chrome/Edge (latest)
+- Firefox (latest)
+- Safari (latest)
+- Mobile browsers
+
+## Deployment
+
+The application can be deployed to various platforms:
+- Vercel (recommended)
+- Netlify
+- GitHub Pages
+- Any static hosting service
+
+Follow the platform-specific deployment guides for detailed instructions.
+
+## Future Enhancements
+
+- Advanced claim categorization
+- Source verification and citation linking
+- User claim history and bookmarks
+- Collaborative fact-checking features
+- API for third-party integrations
+- Mobile app versions
+
+## License
+
+This project is open source and available under the MIT License.
+
+## Support
+
+For issues, questions, or feature requests, please reach out through the project repository.
