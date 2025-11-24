@@ -9,6 +9,7 @@ import Auth from "./pages/Auth";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
+// Force reload to pick up environment variables
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
