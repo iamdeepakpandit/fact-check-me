@@ -6,6 +6,7 @@ import { FactCheckInput } from "@/components/FactCheckInput";
 import { FactCheckResult, ResultType } from "@/components/FactCheckResult";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
+import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
 
 const Index = () => {
@@ -19,6 +20,12 @@ const Index = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
+    // Check if environment variables are loaded
+    if (!import.meta.env.VITE_SUPABASE_URL) {
+      console.error('Environment variables not loaded. Refresh the page.');
+      return;
+    }
+
     // Set up auth state listener
     const { data: { subscription } } = supabase.auth.onAuthStateChange(
       (event, session) => {
@@ -75,6 +82,21 @@ const Index = () => {
       setIsLoading(false);
     }
   };
+
+  // Show error message if env vars not loaded
+  if (!import.meta.env.VITE_SUPABASE_URL) {
+    return (
+      <div className="min-h-screen bg-background flex items-center justify-center p-4">
+        <div className="text-center space-y-4 max-w-md">
+          <h1 className="text-2xl font-bold text-foreground">Lovable Cloud Initializing</h1>
+          <p className="text-muted-foreground">
+            Environment variables are loading. Please refresh the page in a moment.
+          </p>
+          <Button onClick={() => window.location.reload()}>Refresh Page</Button>
+        </div>
+      </div>
+    );
+  }
 
   if (!session) {
     return null;
